@@ -16,6 +16,8 @@ class AddForm extends StatefulWidget {
 final _formKey = GlobalKey<FormState>();
 String initialValue = "";
 
+String _value=""; // this variable contains the string entered
+
 class _AddFormState extends State<AddForm> {
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,12 @@ class _AddFormState extends State<AddForm> {
                 if (value == null || value.isWhitespace()) {
                   return "Field can't be Empty";
                 } else {
+                  _value=value;
                   return null;
                 }
+
               },
+
               initialValue: initialValue,
               style: const TextStyle(
                 fontSize: 16.0,
@@ -77,6 +82,7 @@ class _AddFormState extends State<AddForm> {
               ),
               keyboardType: TextInputType.multiline,
             ),
+
             SizedBox(
               height: size.height * 0.05,
             ),
